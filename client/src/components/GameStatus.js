@@ -7,7 +7,7 @@ const GameStatus = (props) => {
 
     const [players, setPlayers] = useState([])
     const [loaded, setLoaded] = useState(false)
-    const [updatedPlayer, setUpdatedPlayer] = useState({})
+    // const [updatedPlayer, setUpdatedPlayer] = useState({})
 
     useEffect(() => {
         console.log('re-render in progress')
@@ -20,7 +20,7 @@ const GameStatus = (props) => {
                 console.log(err)
                 setLoaded(false)
             })
-    }, [updatedPlayer])
+    }, [])
     return (
         <div>
             {loaded ?
@@ -36,7 +36,7 @@ const GameStatus = (props) => {
                             return (
                                 <tr key={index}>
                                     <td>{player.name}</td>
-                                    <td><StatusForm player={player} setUpdatedPlayer={setUpdatedPlayer} gameId={gameId}/></td>
+                                    <td><StatusForm player={player} setPlayers={setPlayers} gameId={gameId}/></td>
                                 </tr>
                             )
                         })}

@@ -1,17 +1,19 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import { updateOnePlayer } from "../services/player-service";
 
 const StatusForm = (props) => {
-    const {player, gameId, setUpdatedPlayer} = props
+    const {player, gameId, setPlayers} = props
     const gameKey = `game${gameId}Status`
 
     const changeStatus = (statusId) => {
-        // setStatus(statusId)
         const statusObj = {}
         statusObj[gameKey] = statusId
         updateOnePlayer(player._id, statusObj)
         .then(updatedPlayer => {
-            setUpdatedPlayer(updatedPlayer)
+            setPlayers(prevPlayers => prevPlayers.map(p => {
+                if(p._id === player._id) return updatedPlayer
+                return p
+            }))
             })
             .catch(err => console.log(err))
     }
