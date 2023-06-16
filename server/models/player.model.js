@@ -8,7 +8,12 @@ const PlayerSchema = new mongoose.Schema(
         },
         position: {
             type: String
-        }
+        },
+        game1Status: {type: Number},
+        game2Status: {type: Number},
+        game3Status: {type: Number}
+
+
     }, { timestamps: true }
 )
 module.exports = mongoose.model('Player', PlayerSchema)

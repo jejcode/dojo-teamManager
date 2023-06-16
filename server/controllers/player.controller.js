@@ -31,7 +31,9 @@ module.exports = {
     },
 
     updatePlayer : (req,res) => {
-        Player.findOneAndUpdate({_id: req.params.id}, req.body, {new:true, runValidators: true})
+        console.log('req.body', req.body)
+        console.log('id', req.params.id)
+        Player.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
             .then( updatedPlayer => {
                 res.json(updatedPlayer)
             })

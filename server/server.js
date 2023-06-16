@@ -8,6 +8,5 @@ app.use(express.urlencoded({ extended: true }))
 
 require('./config/mongoose.config')
 require('./routes/player.routes')(app)
-// require('./routes/game.routes')(app)
 
 app.listen(8000, () => console.log('Listening on port 8000'))

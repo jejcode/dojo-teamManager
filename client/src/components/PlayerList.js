@@ -33,8 +33,10 @@ const PlayerList = () => {
             {loaded ?
                 <table className="table table-hover">
                     <thead>
-                        <th scope="col">Team Name</th>
-                        <th scope="col">Preferred Position</th>
+                        <tr>
+                            <th scope="col">Team Name</th>
+                            <th scope="col">Preferred Position</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {players.map((player, index) => {
